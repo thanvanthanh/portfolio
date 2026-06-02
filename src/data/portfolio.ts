@@ -1,5 +1,5 @@
 export const profile = {
-  name: 'Thân Van Thanh',
+  name: 'Than Van Thanh',
   title: 'Senior iOS / Mobile Developer',
   location: 'Hà Nội, Việt Nam',
   email: 'thanvanthanh1909@gmail.com',
