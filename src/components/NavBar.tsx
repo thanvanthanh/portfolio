@@ -28,7 +28,7 @@ export default function NavBar() {
               ⌘
             </span>
             <span>
-              thanh<span className="text-ink-500">.dev</span>
+              Port<span className="text-ink-500">folio</span>
             </span>
           </a>
 
@@ -73,9 +73,8 @@ export default function NavBar() {
       </header>
 
       <div
-        className={`fixed inset-x-0 top-12 z-40 border-b border-ink-200/60 bg-white/95 backdrop-blur md:hidden ${
-          mobileOpen ? '' : 'hidden'
-        }`}
+        className={`fixed inset-x-0 top-12 z-40 border-b border-ink-200/60 bg-white/95 backdrop-blur md:hidden ${mobileOpen ? '' : 'hidden'
+          }`}
       >
         <ul className="container-x flex flex-col py-4 text-lg">
           {items.map((item) => (

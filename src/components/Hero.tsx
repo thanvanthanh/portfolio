@@ -56,57 +56,95 @@ export default function Hero() {
     const slides = heroSlides.length;
     const step = 360 / slides;
 
+    let target = 0;
+    let current = 0;
+    let progress = 0;
+    let lastActive = -1;
     let raf = 0;
-    const update = () => {
-      raf = 0;
+    let needsRender = true;
+
+    const computeTarget = () => {
       const rect = wrapper.getBoundingClientRect();
       const total = Math.max(1, wrapper.offsetHeight - window.innerHeight);
-      const p = Math.max(0, Math.min(1, -rect.top / total));
-      const rotation = p * step * (slides - 1);
-      const radius = Math.min(460, Math.max(220, window.innerWidth * 0.3));
+      progress = Math.max(0, Math.min(1, -rect.top / total));
+      target = progress * step * (slides - 1);
+    };
 
+    const render = () => {
+      const radius = Math.min(460, Math.max(220, window.innerWidth * 0.3));
       let active = 0;
       let bestAbs = Infinity;
 
       cardsRef.current.forEach((el, i) => {
         if (!el) return;
-        const angle = i * step - rotation;
+        const angle = i * step - current;
         const norm = ((angle + 540) % 360) - 180;
         const abs = Math.abs(norm);
         const scale = 1 - Math.min(0.35, abs / 360);
         const opacity = Math.max(0.18, 1 - abs / 200);
-        el.style.transform = `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px) scale(${scale})`;
+        el.style.transform = `translate3d(-50%, -50%, 0) rotateY(${angle}deg) translateZ(${radius}px) scale(${scale})`;
         el.style.opacity = String(opacity);
-        el.style.zIndex = String(1000 - Math.round(abs));
         if (abs < bestAbs) {
           bestAbs = abs;
           active = i;
         }
       });
 
-      const slide = heroSlides[active];
-      if (labelRef.current) labelRef.current.textContent = slide.name;
-      if (roleRef.current) roleRef.current.textContent = slide.role;
-      if (counterRef.current) {
-        counterRef.current.textContent = `${String(active + 1).padStart(2, '0')} / ${String(slides).padStart(2, '0')}`;
+      if (active !== lastActive) {
+        lastActive = active;
+        cardsRef.current.forEach((el, i) => {
+          if (el) el.style.zIndex = String(i === active ? 100 : 50 - i);
+        });
+        const slide = heroSlides[active];
+        if (labelRef.current) labelRef.current.textContent = slide.name;
+        if (roleRef.current) roleRef.current.textContent = slide.role;
+        if (counterRef.current) {
+          counterRef.current.textContent = `${String(active + 1).padStart(2, '0')} / ${String(slides).padStart(2, '0')}`;
+        }
       }
+
       if (progressBarRef.current) {
-        progressBarRef.current.style.transform = `scaleX(${p})`;
+        progressBarRef.current.style.transform = `scaleX(${progress})`;
       }
+    };
+
+    const tick = () => {
+      raf = 0;
+      const diff = target - current;
+      const moving = Math.abs(diff) > 0.01;
+      if (moving) {
+        current += diff * 0.18;
+      } else if (current !== target) {
+        current = target;
+      }
+      if (moving || needsRender) {
+        needsRender = false;
+        render();
+      }
+      if (moving) raf = requestAnimationFrame(tick);
     };
 
     const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(update);
+      computeTarget();
+      if (!raf) raf = requestAnimationFrame(tick);
     };
 
-    update();
+    const onResize = () => {
+      computeTarget();
+      needsRender = true;
+      if (!raf) raf = requestAnimationFrame(tick);
+    };
+
+    computeTarget();
+    current = target;
+    render();
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+    window.addEventListener('resize', onResize);
     return () => {
       if (raf) cancelAnimationFrame(raf);
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      window.removeEventListener('resize', onResize);
     };
   }, []);
 
@@ -192,8 +230,7 @@ export default function Hero() {
                   className="absolute left-0 top-0 will-change-transform"
                   style={{
                     transformStyle: 'preserve-3d',
-                    transition:
-                      'opacity 280ms ease-out, transform 80ms linear',
+                    backfaceVisibility: 'hidden',
                   }}
                 >
                   <div

@@ -4,9 +4,9 @@ import NavBar from '~/components/NavBar';
 import RevealObserver from '~/components/RevealObserver';
 
 export const metadata: Metadata = {
-  title: 'Thanh Thân — Mobile Developer',
+  title: 'Thanh Than — Mobile Developer',
   description:
-    'Mobile developer building polished iOS, Android, and Flutter products that people open every day.',
+    'Mobile developer building polished iOS and Flutter products that people open every day.',
   icons: {
     icon: '/favicon.svg',
   },

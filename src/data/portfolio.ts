@@ -42,17 +42,17 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: 'VNASA',
-    tagline: 'Vietnam Airlines super-app cho nhân viên.',
+    name: 'Photoism',
+    tagline: 'Photobooth #1 Hàn Quốc.',
     description:
-      'Mobile super-app nội bộ của Vietnam Airlines — gộp SkyIdea, KPI, Newsfeed, Notifications và các dịch vụ doanh nghiệp vào một nền tảng duy nhất cho hơn 15.000 nhân viên.',
-    tech: ['Flutter', 'BLoC', 'Dio', 'Firebase', 'Fastlane'],
-    role: 'Mobile Developer Leader (Flutter)',
-    year: '2025',
-    emoji: '✈️',
-    gradient: ['#0071e3', '#91a5dc'],
-    accent: '#0071e3',
-    image: '/projects/vnasa.jpg',
+      'Ứng dụng photobooth bán lẻ tại Hàn Quốc — chụp, chỉnh sửa và chia sẻ ảnh ngay tại kiosk. Phát triển luồng SwiftUI + TCA, tích hợp Kakao / Naver SDK và đồng bộ ảnh realtime.',
+    tech: ['Swift', 'SwiftUI', 'TCA', 'Kakao SDK', 'Naver SDK'],
+    role: 'iOS Developer',
+    year: '2024 — 2025',
+    emoji: '📸',
+    gradient: ['#11998E', '#38EF7D'],
+    accent: '#11998E',
+    image: '/projects/photoism.jpg',
   },
   {
     name: 'Yogiyo',
