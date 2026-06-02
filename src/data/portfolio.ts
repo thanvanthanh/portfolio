@@ -17,13 +17,13 @@ export const stats = [
 ];
 
 export const skills = [
-  { name: 'Swift / SwiftUI', level: 'Expert', emoji: '🍎' },
-  { name: 'Objective-C / UIKit', level: 'Expert', emoji: '🧱' },
-  { name: 'Flutter & Dart', level: 'Advanced', emoji: '💙' },
+  { name: 'Swift / SwiftUI', level: 'Expert', emoji: '🍎', icon: '/icons/swift.png' },
+  { name: 'Objective-C / UIKit', level: 'Expert', emoji: '🧱', icon: '/icons/uikit.png' },
+  { name: 'Flutter & Dart', level: 'Advanced', emoji: '💙', icon: '/icons/flutter.png' },
   { name: 'TCA / VIPER / MVVM', level: 'Expert', emoji: '🏛' },
-  { name: 'RxSwift & Combine', level: 'Advanced', emoji: '🌊' },
-  { name: 'Firebase / Realm / CoreData', level: 'Advanced', emoji: '🔥' },
-  { name: 'CI/CD · Fastlane · Jenkins', level: 'Advanced', emoji: '🚀' },
+  { name: 'RxSwift & Combine', level: 'Advanced', emoji: '🌊', icon: '/icons/rxswift.png' },
+  { name: 'Firebase / Realm / CoreData', level: 'Advanced', emoji: '🔥', icon: '/icons/firebase.png' },
+  { name: 'CI/CD · Fastlane · Jenkins', level: 'Advanced', emoji: '🚀', icon: '/icons/fastlane.png' },
   { name: 'LiveKit · WebSocket · SDK', level: 'Strong', emoji: '📡' },
 ];
 

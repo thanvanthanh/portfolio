@@ -16,7 +16,17 @@ export default function Skills() {
           {skills.map((s) => (
             <div key={s.name} className="group relative">
               <div className="flex h-full min-h-[180px] flex-col justify-between gap-6 rounded-2xl bg-gradient-to-br from-white to-ink-100 p-7 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_24px_48px_-24px_rgba(0,0,0,0.18)]">
-                <div className="text-[36px] leading-none">{s.emoji}</div>
+                {s.icon ? (
+                  <img
+                    src={s.icon}
+                    alt={s.name}
+                    className="h-9 w-9 object-contain transition-transform duration-300 group-hover:scale-110 md:h-10 md:w-10"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div className="text-[36px] leading-none">{s.emoji}</div>
+                )}
                 <div>
                   <div className="text-[18px] font-semibold tracking-tight">
                     {s.name}
