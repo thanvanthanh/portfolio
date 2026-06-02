@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter analyze *)",
+      "Bash(flutter build *)",
+      "Bash(npm -v)",
+      "Bash(npm install *)",
+      "Bash(npx astro *)",
+      "Bash(echo \"PID=$!\")",
+      "Read(//private/tmp/**)",
+      "Bash(curl -sS -o /tmp/index.html -w \"HTTP %{http_code} | %{size_download} bytes\\\\n\" http://localhost:4321/)",
+      "Read(//tmp/**)",
+      "Bash(pkill -f \"astro dev\")",
+      "Bash(npx next *)",
+      "Bash(find /Users/thanhthan/Desktop -maxdepth 3 -type f \\\\\\( -iname \"*cv*\" -o -iname \"*resume*\" \\\\\\) 2>/dev/null | head -20)",
+      "Read(//Users/thanhthan/Desktop/**)"
+    ]
+  }
+}

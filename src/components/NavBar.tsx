@@ -1,0 +1,96 @@
+'use client';
+
+import { useState } from 'react';
+
+const items = [
+  { label: 'Work', href: '#work' },
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Contact', href: '#contact' },
+];
+
+export default function NavBar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  return (
+    <>
+      <header
+        id="nav"
+        className="glass fixed inset-x-0 top-0 z-50 h-12"
+      >
+        <nav className="container-x flex h-full items-center justify-between">
+          <a
+            href="#top"
+            className="flex items-center gap-2 text-[15px] font-semibold tracking-tight"
+          >
+            <span className="grid h-5 w-5 place-items-center rounded-md bg-ink text-white text-[10px]">
+              ⌘
+            </span>
+            <span>
+              thanh<span className="text-ink-500">.dev</span>
+            </span>
+          </a>
+
+          <ul className="hidden items-center gap-1 md:flex">
+            {items.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="rounded-full px-3 py-1.5 text-[13px] text-ink/80 transition-colors hover:text-ink"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact"
+              className="hidden md:inline-flex items-center gap-1 rounded-full bg-ink px-3.5 py-1.5 text-[12px] font-medium text-white transition-transform hover:scale-[1.02]"
+            >
+              Hire me
+              <span aria-hidden>→</span>
+            </a>
+            <button
+              type="button"
+              onClick={() => setMobileOpen((v) => !v)}
+              className="grid h-8 w-8 place-items-center rounded-md text-ink md:hidden"
+              aria-label="Open menu"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M3 7h18M3 17h18"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <div
+        className={`fixed inset-x-0 top-12 z-40 border-b border-ink-200/60 bg-white/95 backdrop-blur md:hidden ${
+          mobileOpen ? '' : 'hidden'
+        }`}
+      >
+        <ul className="container-x flex flex-col py-4 text-lg">
+          {items.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                onClick={() => setMobileOpen(false)}
+                className="block py-3 font-medium tracking-tight text-ink"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+}
