@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+// @ts-ignore: Allow side-effect import of global CSS in Next.js
 import './globals.css';
 import NavBar from '~/components/NavBar';
 import RevealObserver from '~/components/RevealObserver';
