@@ -12,7 +12,7 @@ export const profile = {
 export const stats = [
   { value: '6+', label: 'Years of experience' },
   { value: '30+', label: 'Apps shipped' },
-  { value: '10M+', label: 'End users' },
+  { value: '5M+', label: 'End users' },
   { value: '4.5', label: 'Average rating' },
 ];
 
