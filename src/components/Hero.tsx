@@ -44,9 +44,6 @@ const heroSlides = [
 export default function Hero() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const labelRef = useRef<HTMLSpanElement>(null);
-  const roleRef = useRef<HTMLSpanElement>(null);
-  const counterRef = useRef<HTMLSpanElement>(null);
   const progressBarRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -95,12 +92,6 @@ export default function Hero() {
         cardsRef.current.forEach((el, i) => {
           if (el) el.style.zIndex = String(i === active ? 100 : 50 - i);
         });
-        const slide = heroSlides[active];
-        if (labelRef.current) labelRef.current.textContent = slide.name;
-        if (roleRef.current) roleRef.current.textContent = slide.role;
-        if (counterRef.current) {
-          counterRef.current.textContent = `${String(active + 1).padStart(2, '0')} / ${String(slides).padStart(2, '0')}`;
-        }
       }
 
       if (progressBarRef.current) {
@@ -208,14 +199,14 @@ export default function Hero() {
         className="relative"
         style={{ height: `${heroSlides.length * 90 + 60}vh` }}
       >
-        <div className="sticky top-0 flex h-screen w-full flex-col items-center justify-center overflow-hidden">
-          <div className="pointer-events-none absolute inset-x-0 top-[14%] mx-auto max-w-md text-center md:top-[10%]">
+        <div className="sticky top-0 flex h-screen w-full flex-col items-center overflow-hidden">
+          <div className="flex h-[64px] w-full shrink-0 items-end justify-center px-6 pb-2 md:h-[88px] md:pb-4">
             <p className="eyebrow text-ink-500">Selected work, in motion</p>
           </div>
 
           <div
-            className="relative h-[460px] w-full md:h-[640px]"
-            style={{ perspective: '1400px' }}
+            className="relative w-full flex-1"
+            style={{ perspective: '1900px' }}
           >
             <div
               className="absolute left-1/2 top-1/2 h-0 w-0"
@@ -234,7 +225,7 @@ export default function Hero() {
                   }}
                 >
                   <div
-                    className={`group relative aspect-[3/6] w-[200px] rounded-[36px] bg-gradient-to-br ${s.tone} p-[5px] shadow-2xl ${s.shadow} md:w-[260px]`}
+                    className={`group relative aspect-[3/6] w-[180px] rounded-[36px] bg-gradient-to-br ${s.tone} p-[5px] shadow-2xl ${s.shadow} md:w-[260px]`}
                   >
                     <div className="relative h-full overflow-hidden rounded-[31px] bg-black">
                       <img
@@ -261,34 +252,14 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute inset-x-0 bottom-10 mx-auto flex max-w-md flex-col items-center gap-3 px-6 text-center">
-            <span
-              ref={labelRef}
-              className="text-[20px] font-semibold tracking-tight text-ink-900 md:text-[22px]"
-            >
-              Yogiyo
-            </span>
-            <span
-              ref={roleRef}
-              className="text-[12px] uppercase tracking-[0.22em] text-ink-500"
-            >
-              Food delivery · Korea
-            </span>
-            <div className="mt-1 flex w-full max-w-[220px] items-center gap-3">
+          <div className="pointer-events-none flex h-[24px] w-full shrink-0 items-center justify-center px-6 pb-6 md:h-[32px] md:pb-10">
+            <span className="relative h-[2px] w-full max-w-[220px] overflow-hidden rounded-full bg-ink-200/70">
               <span
-                ref={counterRef}
-                className="shrink-0 text-[11px] font-medium tracking-[0.3em] text-ink-500"
-              >
-                01 / {String(heroSlides.length).padStart(2, '0')}
-              </span>
-              <span className="relative h-[2px] flex-1 overflow-hidden rounded-full bg-ink-200/70">
-                <span
-                  ref={progressBarRef}
-                  className="absolute inset-y-0 left-0 block w-full origin-left bg-ink-900"
-                  style={{ transform: 'scaleX(0)' }}
-                />
-              </span>
-            </div>
+                ref={progressBarRef}
+                className="absolute inset-y-0 left-0 block w-full origin-left bg-ink-900"
+                style={{ transform: 'scaleX(0)' }}
+              />
+            </span>
           </div>
         </div>
       </div>

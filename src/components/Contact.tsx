@@ -27,7 +27,7 @@ export default function Contact() {
             <span className="block gradient-text">Let&apos;s build it.</span>
           </h2>
           <p className="lede mx-auto mt-6 max-w-xl">
-            Tôi luôn sẵn sàng cho các dự án mobile thú vị, đặc biệt là những app cần đến sự chăm chút từng chi tiết.
+            Always open to interesting mobile projects — especially the ones that need real care for every detail.
           </p>
 
           <a
@@ -72,7 +72,7 @@ export default function Contact() {
 
       <footer className="border-t border-ink-200/60">
         <div className="container-x flex flex-col items-center justify-between gap-3 py-8 text-[13px] text-ink-400 md:flex-row">
-          <span>© 2026 {profile.name}. Crafted with Next.js.</span>
+          <span>© 2026 {profile.name}</span>
           <span>{profile.location}</span>
         </div>
       </footer>

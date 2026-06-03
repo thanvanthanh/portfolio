@@ -8,7 +8,7 @@ export default function Skills() {
           <p className="eyebrow text-accent">Skills</p>
           <h2 className="mt-4 display-1">The tools, sharpened.</h2>
           <p className="lede mt-6 max-w-2xl">
-            Bộ kỹ năng được chọn lọc qua nhiều dự án thương mại — đủ rộng để đưa ý tưởng từ napkin lên App Store, đủ sâu để gỡ những bug khó nhằn nhất.
+            A toolkit honed across many shipped products — broad enough to take an idea from napkin to App Store, deep enough to hunt down the toughest bugs.
           </p>
         </div>
 

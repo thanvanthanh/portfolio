@@ -34,9 +34,9 @@ export default function About() {
             <span className="block gradient-text">feel inevitable.</span>
           </h2>
           <p className="lede mt-6 text-white/70">
-            Tôi tin một ứng dụng tốt là khi người dùng quên mất họ đang dùng phần mềm.
-            Sau hơn 5 năm với Swift, Objective-C và Flutter — từ mobile banking, fintech tới super-app doanh nghiệp —
-            tôi vẫn giữ nguyên tiêu chuẩn đó cho mỗi sản phẩm tôi chạm tay vào.
+            I believe a good app is one where the user forgets they’re using software at all.
+            After 5+ years working with Swift, Objective-C and Flutter — across mobile banking, fintech and enterprise super-apps —
+            I still hold every product I touch to that same bar.
           </p>
         </div>
 
@@ -58,21 +58,21 @@ export default function About() {
             <div className="text-2xl">🎯</div>
             <h3 className="mt-4 text-lg font-semibold">Performance first</h3>
             <p className="mt-2 text-[15px] leading-relaxed text-white/65">
-              120fps scroll, sub-second startup, dùng đúng công cụ profiler trước khi gõ code mới.
+              120fps scrolling, sub-second startup, and reaching for the right profiler before writing new code.
             </p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur">
             <div className="text-2xl">🪞</div>
             <h3 className="mt-4 text-lg font-semibold">Detail obsessed</h3>
             <p className="mt-2 text-[15px] leading-relaxed text-white/65">
-              Haptics, motion curves, kerning — những thứ người dùng cảm nhận trước cả khi nhận ra.
+              Haptics, motion curves, kerning — the things users feel before they consciously notice them.
             </p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur">
             <div className="text-2xl">🌱</div>
             <h3 className="mt-4 text-lg font-semibold">Ship & learn</h3>
             <p className="mt-2 text-[15px] leading-relaxed text-white/65">
-              Khởi đầu nhỏ, đo đạc thật, lặp lại nhanh. Sản phẩm tốt là sản phẩm được dùng.
+              Start small, measure for real, iterate fast. A good product is a product people actually use.
             </p>
           </div>
         </div>

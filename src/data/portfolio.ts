@@ -1,19 +1,19 @@
 export const profile = {
   name: 'Than Van Thanh',
   title: 'Senior iOS / Mobile Developer',
-  location: 'Hà Nội, Việt Nam',
+  location: 'Hanoi, Vietnam',
   email: 'thanvanthanh1909@gmail.com',
   phone: '0366 360 222',
   github: 'https://github.com/thanvanthanh',
   linkedin: 'https://www.linkedin.com/in/than-van-thanh/',
-  bio: 'iOS Developer hơn 6 năm kinh nghiệm với Swift, Objective-C và Flutter. Đã ship hàng loạt app từ super-app doanh nghiệp tới fintech, food delivery, và crypto exchange — luôn ám ảnh với UI mượt, kiến trúc sạch và hiệu năng thực.',
+  bio: 'iOS Developer with 6+ years building production apps in Swift, Objective-C and Flutter. Shipped everything from enterprise super-apps to fintech, food delivery and crypto exchange — obsessed with smooth UI, clean architecture and real performance.',
 };
 
 export const stats = [
-  { value: '5+', label: 'Năm kinh nghiệm' },
-  { value: '11+', label: 'Apps đã ship' },
-  { value: '5M+', label: 'Người dùng cuối' },
-  { value: '4.5', label: 'Rating trung bình' },
+  { value: '5+', label: 'Years of experience' },
+  { value: '11+', label: 'Apps shipped' },
+  { value: '5M+', label: 'End users' },
+  { value: '4.5', label: 'Average rating' },
 ];
 
 export const skills = [
@@ -42,10 +42,23 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    name: 'Photoism',
-    tagline: 'Photobooth #1 Hàn Quốc.',
+    name: 'VNASA',
+    tagline: 'Vietnam Airlines internal super-app.',
     description:
-      'Ứng dụng photobooth bán lẻ tại Hàn Quốc — chụp, chỉnh sửa và chia sẻ ảnh ngay tại kiosk. Phát triển luồng SwiftUI + TCA, tích hợp Kakao / Naver SDK và đồng bộ ảnh realtime.',
+      'Internal mobile super-app for Vietnam Airlines — bundling SkyIdea, KPI, Newsfeed, Notifications and other enterprise services into a single platform for 15,000+ employees.',
+    tech: ['Flutter', 'BLoC', 'Dio', 'Firebase', 'Fastlane'],
+    role: 'Mobile Developer Leader (Flutter)',
+    year: '2025',
+    emoji: '✈️',
+    gradient: ['#0071e3', '#91a5dc'],
+    accent: '#0071e3',
+    image: '/projects/vnasa.jpg',
+  },
+  {
+    name: 'Photoism',
+    tagline: 'Korea’s #1 photobooth app.',
+    description:
+      'Retail photobooth app in Korea — capture, edit and share photos right at the kiosk. Built SwiftUI + TCA flows, integrated Kakao / Naver SDKs and real-time photo sync.',
     tech: ['Swift', 'SwiftUI', 'TCA', 'Kakao SDK', 'Naver SDK'],
     role: 'iOS Developer',
     year: '2024 — 2025',
@@ -56,9 +69,9 @@ export const projects: Project[] = [
   },
   {
     name: 'Yogiyo',
-    tagline: 'Food delivery số 1 Hàn Quốc.',
+    tagline: 'Korea’s leading food delivery platform.',
     description:
-      'Một trong những nền tảng đặt đồ ăn lớn nhất Hàn Quốc, được Delivery Hero mua lại. Phát triển và bảo trì các luồng UI/UX phức tạp, tối ưu hiệu năng và tích hợp các dịch vụ marketing-tech.',
+      'One of Korea’s largest food delivery platforms, acquired by Delivery Hero. Built and maintained complex UI/UX flows, optimized performance and integrated marketing-tech services.',
     tech: ['Swift', 'TCA', 'MVVM', 'Tuist', 'Braze', 'AppsFlyer'],
     role: 'iOS Developer',
     year: '2022 — 2024',
@@ -69,9 +82,9 @@ export const projects: Project[] = [
   },
   {
     name: 'Toyota Wallet',
-    tagline: 'Ví điện tử chính chủ của Toyota Nhật Bản.',
+    tagline: 'Toyota Japan’s official e-wallet.',
     description:
-      'Giải pháp thanh toán di động myTOYOTA Wallet với e-money, thẻ tín dụng và thẻ ghi nợ. Phát triển, review code, tối ưu kiến trúc và đảm bảo bảo mật các luồng giao dịch tài chính.',
+      'myTOYOTA Wallet mobile payment solution with e-money, credit and debit cards. Built features, reviewed code, refined architecture and hardened the security of all financial flows.',
     tech: ['Swift', 'VIPER', 'RxSwift', 'RxCocoa', 'Firebase'],
     role: 'iOS Developer',
     year: '2020 — 2022',
@@ -82,9 +95,9 @@ export const projects: Project[] = [
   },
   {
     name: 'ProBit Global',
-    tagline: 'Sàn giao dịch crypto toàn cầu.',
+    tagline: 'Global crypto exchange.',
     description:
-      'Sàn giao dịch tiền mã hoá Coin-to-Coin với hiện diện ở nhiều thị trường. Tham gia phát triển, tối ưu hiệu năng và xử lý các luồng realtime với WebSocket / Socket.io.',
+      'Coin-to-coin crypto exchange operating across multiple markets. Worked on feature development, performance tuning and real-time flows over WebSocket / Socket.io.',
     tech: ['Swift', 'VIPER', 'TradingView', 'WebSocket', 'Alamofire'],
     role: 'iOS Developer',
     year: '2022 — 2023',
@@ -99,16 +112,16 @@ export const experiences = [
   {
     company: 'SOTATEK., JSC',
     role: 'Mobile Developer (iOS / Flutter)',
-    period: '08/2022 — Hiện tại',
+    period: '08/2022 — Present',
     summary:
-      'Tham gia và dẫn dắt mobile cho các sản phẩm outsourcing quy mô lớn — từ super-app doanh nghiệp tới fintech, food delivery, photobooth và edtech.',
+      'Build and lead mobile for large outsourcing products — from enterprise super-apps to fintech, food delivery, photobooth and edtech.',
     bullets: [
-      'Lead Flutter cho VNASA — super-app nội bộ của Vietnam Airlines (15+ thành viên).',
-      'iOS Developer cho Photoism / Snapism (Hàn Quốc) với TCA + SwiftUI và tích hợp Kakao/Naver SDK.',
-      'Phát triển Yogiyo App (Hàn Quốc) — MVVM + TCA, Tuist, Fastlane CI/CD.',
-      'Phát triển Merchant App cho chuỗi cửa hàng tại Hàn Quốc.',
-      'Phát triển GIM SDK video/audio meeting trên LiveKit + ChatSDK + WebSocket.',
-      'Đóng góp ProBit Global, Smart Learn (GIIS) — VIPER + Clean Architecture.',
+      'Flutter lead on VNASA — Vietnam Airlines’ internal super-app (15+ team members).',
+      'iOS Developer on Photoism / Snapism (Korea) with TCA + SwiftUI and Kakao / Naver SDK integrations.',
+      'Built the Yogiyo App (Korea) — MVVM + TCA, Tuist, Fastlane CI/CD.',
+      'Built the Merchant App for a retail chain in Korea.',
+      'Built the GIM SDK for video / audio meetings on top of LiveKit + ChatSDK + WebSocket.',
+      'Contributed to ProBit Global and Smart Learn (GIIS) — VIPER + Clean Architecture.',
     ],
   },
   {
@@ -116,9 +129,9 @@ export const experiences = [
     role: 'iOS Developer',
     period: '06/2020 — 07/2022',
     summary:
-      'Xây dựng các sản phẩm fintech cho thị trường Nhật Bản.',
+      'Built fintech products for the Japanese market.',
     bullets: [
-      'Phát triển Toyota Wallet — VIPER + Clean Architecture, RxSwift, đảm bảo an toàn giao dịch.',
+      'Built Toyota Wallet — VIPER + Clean Architecture, RxSwift, with strong transaction safety.',
     ],
   },
   {
@@ -126,10 +139,10 @@ export const experiences = [
     role: 'Intern iOS Developer',
     period: '03/2020 — 05/2020',
     summary:
-      'Bắt đầu sự nghiệp iOS với mảng mobile banking — học tốt nền móng UIKit, bảo mật và quy trình release.',
+      'Started my iOS career in mobile banking — solid foundations in UIKit, security and the release process.',
     bullets: [
-      'Tham gia phát triển Co-opBank Mobile Banking (UIKit, VIP pattern).',
-      'Đóng góp module KYC SDK và các tính năng bảo mật giao dịch.',
+      'Contributed to Co-opBank Mobile Banking (UIKit, VIP pattern).',
+      'Worked on a KYC SDK module and transaction security features.',
     ],
   },
 ];

@@ -38,7 +38,7 @@ export default function Projects() {
             </span>
           </h2>
           <p className="lede mt-6 max-w-2xl">
-            Một vài sản phẩm tiêu biểu — từ ý tưởng đầu tiên đến App Store. Cuộn xuống để theo từng câu chuyện.
+            A few highlights — from first idea to App Store. Scroll through to follow each story.
           </p>
         </div>
       </div>
