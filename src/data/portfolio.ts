@@ -6,7 +6,7 @@ export const profile = {
   phone: '0366 360 222',
   github: 'https://github.com/thanvanthanh',
   linkedin: 'https://www.linkedin.com/in/than-van-thanh/',
-  bio: 'iOS Developer with 6+ years building production apps in Swift, Objective-C and Flutter. Shipped everything from enterprise super-apps to fintech, food delivery and crypto exchange — obsessed with smooth UI, clean architecture and real performance.',
+  bio: 'iOS Developer with 5+ years building production apps in Swift, Objective-C and Flutter. Shipped everything from enterprise super-apps to fintech, food delivery and crypto exchange — obsessed with smooth UI, clean architecture and real performance.',
 };
 
 export const stats = [

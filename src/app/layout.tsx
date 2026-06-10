@@ -7,7 +7,7 @@ import RevealObserver from '~/components/RevealObserver';
 const siteUrl = 'https://thanvanthanh.info.vn';
 const siteName = 'Than Van Thanh — Mobile Developer';
 const description =
-  'Senior iOS / Mobile Developer with 6+ years of experience in Swift, Objective-C and Flutter. Shipped enterprise super-apps, fintech, food delivery and crypto exchange products — obsessed with smooth UI, clean architecture and real performance.';
+  'Senior iOS / Mobile Developer with 5+ years of experience in Swift, Objective-C and Flutter. Shipped enterprise super-apps, fintech, food delivery and crypto exchange products — obsessed with smooth UI, clean architecture and real performance.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
