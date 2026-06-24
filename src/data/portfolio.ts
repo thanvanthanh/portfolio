@@ -134,17 +134,6 @@ export const experiences = [
       'Built Toyota Wallet — VIPER + Clean Architecture, RxSwift, with strong transaction safety.',
     ],
   },
-  {
-    company: 'VNPAY',
-    role: 'Intern iOS Developer',
-    period: '03/2020 — 05/2020',
-    summary:
-      'Started my iOS career in mobile banking — solid foundations in UIKit, security and the release process.',
-    bullets: [
-      'Contributed to Co-opBank Mobile Banking (UIKit, VIP pattern).',
-      'Worked on a KYC SDK module and transaction security features.',
-    ],
-  },
 ];
 
 export const education = [

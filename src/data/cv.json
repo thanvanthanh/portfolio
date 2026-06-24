@@ -10,20 +10,56 @@
     "bio": "iOS Developer with 5+ years building production apps in Swift, Objective-C and Flutter. Shipped everything from enterprise super-apps to fintech, food delivery and crypto exchange — obsessed with smooth UI, clean architecture and real performance."
   },
   "stats": [
-    { "value": "5+", "label": "Years of experience" },
-    { "value": "10+", "label": "Apps shipped" },
-    { "value": "3M+", "label": "End users" },
-    { "value": "4.5", "label": "Average rating" }
+    {
+      "value": "5+",
+      "label": "Years of experience"
+    },
+    {
+      "value": "10+",
+      "label": "Apps shipped"
+    },
+    {
+      "value": "3M+",
+      "label": "End users"
+    },
+    {
+      "value": "4.5",
+      "label": "Average rating"
+    }
   ],
   "skills": [
-    { "name": "Swift / SwiftUI", "level": "Expert" },
-    { "name": "Objective-C / UIKit", "level": "Expert" },
-    { "name": "Flutter & Dart", "level": "Advanced" },
-    { "name": "TCA / VIPER / MVVM", "level": "Expert" },
-    { "name": "RxSwift & Combine", "level": "Advanced" },
-    { "name": "Firebase / Realm / CoreData", "level": "Advanced" },
-    { "name": "CI/CD · Fastlane · Jenkins", "level": "Advanced" },
-    { "name": "LiveKit · WebSocket · SDK", "level": "Strong" }
+    {
+      "name": "Swift / SwiftUI",
+      "level": "Expert"
+    },
+    {
+      "name": "Objective-C / UIKit",
+      "level": "Expert"
+    },
+    {
+      "name": "Flutter & Dart",
+      "level": "Advanced"
+    },
+    {
+      "name": "TCA / VIPER / MVVM",
+      "level": "Expert"
+    },
+    {
+      "name": "RxSwift & Combine",
+      "level": "Advanced"
+    },
+    {
+      "name": "Firebase / Realm / CoreData",
+      "level": "Advanced"
+    },
+    {
+      "name": "CI/CD · Fastlane · Jenkins",
+      "level": "Advanced"
+    },
+    {
+      "name": "LiveKit · WebSocket · SDK",
+      "level": "Strong"
+    }
   ],
   "experiences": [
     {
@@ -47,16 +83,6 @@
       "summary": "Built fintech products for the Japanese market.",
       "bullets": [
         "Built Toyota Wallet — VIPER + Clean Architecture, RxSwift, with strong transaction safety."
-      ]
-    },
-    {
-      "company": "VNPAY",
-      "role": "Intern iOS Developer",
-      "period": "03/2020 — 05/2020",
-      "summary": "Started my iOS career in mobile banking — solid foundations in UIKit, security and the release process.",
-      "bullets": [
-        "Contributed to Co-opBank Mobile Banking (UIKit, VIP pattern).",
-        "Worked on a KYC SDK module and transaction security features."
       ]
     }
   ],
