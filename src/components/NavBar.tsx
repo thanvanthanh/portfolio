@@ -21,8 +21,8 @@ export default function NavBar() {
         className="glass fixed inset-x-0 top-0 z-50 h-12"
       >
         <nav className="container-x flex h-full items-center justify-between">
-          <a
-            href="#top"
+          <Link
+            href="/#top"
             className="flex items-center gap-2 text-[15px] font-semibold tracking-tight"
           >
             <span className="grid h-5 w-5 place-items-center rounded-md bg-ink text-white text-[10px]">
@@ -31,17 +31,17 @@ export default function NavBar() {
             <span>
               Port<span className="text-ink-500">folio</span>
             </span>
-          </a>
+          </Link>
 
           <ul className="hidden items-center gap-1 md:flex">
             {items.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
+                <Link
+                  href={`/${item.href}`}
                   className="rounded-full px-3 py-1.5 text-[13px] text-ink/80 transition-colors hover:text-ink"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -57,13 +57,13 @@ export default function NavBar() {
               </svg>
               My CV
             </Link>
-            <a
-              href="#contact"
+            <Link
+              href="/#contact"
               className="hidden md:inline-flex items-center gap-1 rounded-full bg-ink px-3.5 py-1.5 text-[12px] font-medium text-white transition-transform hover:scale-[1.02]"
             >
               Hire me
               <span aria-hidden>→</span>
-            </a>
+            </Link>
             <button
               type="button"
               onClick={() => setMobileOpen((v) => !v)}
@@ -90,13 +90,13 @@ export default function NavBar() {
         <ul className="container-x flex flex-col py-4 text-lg">
           {items.map((item) => (
             <li key={item.href}>
-              <a
-                href={item.href}
+              <Link
+                href={`/${item.href}`}
                 onClick={() => setMobileOpen(false)}
                 className="block py-3 font-medium tracking-tight text-ink"
               >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li>
