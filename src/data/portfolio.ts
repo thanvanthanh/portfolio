@@ -87,7 +87,7 @@ export const projects: Project[] = [
       'myTOYOTA Wallet mobile payment solution with e-money, credit and debit cards. Built features, reviewed code, refined architecture and hardened the security of all financial flows.',
     tech: ['Swift', 'VIPER', 'RxSwift', 'RxCocoa', 'Firebase'],
     role: 'iOS Developer',
-    year: '2020 — 2022',
+    year: '2021 — 2022',
     emoji: '💳',
     gradient: ['#9e6264', '#1281db'],
     accent: '#517FA4',
@@ -127,7 +127,7 @@ export const experiences = [
   {
     company: 'OPN VN',
     role: 'iOS Developer',
-    period: '06/2020 — 07/2022',
+    period: '06/2021 — 07/2022',
     summary:
       'Built fintech products for the Japanese market.',
     bullets: [
@@ -145,7 +145,7 @@ export const education = [
   {
     school: 'TECHMASTER Vietnam',
     major: 'iOS Swift Programming',
-    period: '03/2020 — 05/2020',
+    period: '03/2021 — 05/2021',
   },
 ];
 
