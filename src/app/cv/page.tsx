@@ -9,7 +9,15 @@ export default function CVPage() {
 
   const handleDownloadPdf = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-    window.location.href = '/api/cv/download';
+
+    const pdfUrl = `${window.location.origin}${cvData.pdfFile}`;
+    const isIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
+
+    if (isIOS) {
+      window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = pdfUrl;
+    }
   };
 
   return (
@@ -34,7 +42,7 @@ export default function CVPage() {
           </div>
 
           <a
-            href="/api/cv/download"
+            href={cvData.pdfFile}
             onClick={handleDownloadPdf}
             className="flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-1.5 text-[12px] font-medium text-white transition-transform hover:scale-[1.02]"
           >
