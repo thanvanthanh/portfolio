@@ -7,42 +7,16 @@ import { useState } from 'react';
 export default function CVPage() {
   const [pdfError, setPdfError] = useState(false);
 
-  const handleDownloadPdf = async (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleDownloadPdf = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-
-    const pdfUrl = new URL(cvData.pdfFile, window.location.origin).toString();
-    const isIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
-
-    if (isIOS) {
-      window.open(pdfUrl, '_blank', 'noopener,noreferrer');
-      return;
-    }
-
-    try {
-      const response = await fetch(pdfUrl, { cache: 'no-store' });
-      if (!response.ok) {
-        throw new Error('Unable to download PDF');
-      }
-
-      const blob = await response.blob();
-      const objectUrl = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = objectUrl;
-      link.download = cvData.pdfFileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(objectUrl);
-    } catch {
-      window.location.href = pdfUrl;
-    }
+    window.location.href = '/api/cv/download';
   };
 
   return (
-    <div className="min-h-screen bg-[--bg] pt-12">
+    <div className="min-h-screen overflow-x-hidden bg-[--bg] pt-12">
       {/* Header bar */}
       <div className="glass sticky top-12 z-40 border-b border-ink-200/40">
-        <div className="container-x flex h-11 items-center justify-between">
+        <div className="container-x flex h-11 items-center justify-between gap-2">
           <div className="flex items-center gap-3">
             <Link
               href="/"
@@ -60,8 +34,7 @@ export default function CVPage() {
           </div>
 
           <a
-            href={cvData.pdfFile}
-            download={cvData.pdfFileName}
+            href="/api/cv/download"
             onClick={handleDownloadPdf}
             className="flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-1.5 text-[12px] font-medium text-white transition-transform hover:scale-[1.02]"
           >
@@ -74,14 +47,14 @@ export default function CVPage() {
       </div>
 
       {/* Main content */}
-      <div className="container-x py-8">
+      <div className="container-x py-4 sm:py-8">
         {/* PDF Viewer */}
         {!pdfError ? (
           <div className="overflow-hidden rounded-2xl border border-ink-200/30 shadow-xl shadow-ink/5">
             <iframe
               src={`${cvData.pdfFile}#toolbar=0&navpanes=0&scrollbar=1`}
-              className="w-full"
-              style={{ height: 'calc(100vh - 140px)', minHeight: '600px' }}
+              className="min-h-[70vh] w-full sm:min-h-[80vh]"
+              style={{ height: 'calc(100vh - 140px)' }}
               title={`${cvData.profile.name} CV`}
               onError={() => setPdfError(true)}
             />
