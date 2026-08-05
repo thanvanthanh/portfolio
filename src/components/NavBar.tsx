@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const items = [
   { label: 'Work', href: '#work' },
@@ -13,6 +13,25 @@ const items = [
 
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => setMobileOpen(false);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (!menuRef.current) return;
+      if (mobileOpen && !menuRef.current.contains(event.target as Node)) {
+        setMobileOpen(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [mobileOpen]);
 
   return (
     <>
@@ -84,7 +103,8 @@ export default function NavBar() {
       </header>
 
       <div
-        className={`fixed inset-x-0 top-12 z-40 border-b border-ink-200/60 bg-white/95 backdrop-blur md:hidden ${mobileOpen ? '' : 'hidden'
+        ref={menuRef}
+        className={`fixed inset-x-0 top-12 z-50 border-b border-ink-200/60 bg-white/95 backdrop-blur md:hidden ${mobileOpen ? '' : 'hidden'
           }`}
       >
         <ul className="container-x flex flex-col py-4 text-lg">

@@ -2,30 +2,57 @@
 
 import cvData from '~/data/cv.json';
 import Link from 'next/link';
-import { useState } from 'react';
+import dynamic from 'next/dynamic';
+import { useEffect, useRef, useState } from 'react';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+
+const Document = dynamic(
+  () => import('react-pdf').then((mod) => mod.Document),
+  { ssr: false }
+);
+const Page = dynamic(
+  () => import('react-pdf').then((mod) => mod.Page),
+  { ssr: false }
+);
 
 export default function CVPage() {
   const [pdfError, setPdfError] = useState(false);
+  const [numPages, setNumPages] = useState<number | null>(null);
+  const [containerWidth, setContainerWidth] = useState<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleDownloadPdf = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
+  useEffect(() => {
+    const workerSrc = new URL(
+      'pdfjs-dist/build/pdf.worker.min.mjs',
+      import.meta.url
+    ).toString();
 
-    const pdfUrl = `${window.location.origin}${cvData.pdfFile}`;
-    const isIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
+    import('react-pdf')
+      .then((mod) => {
+        mod.pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
+      })
+      .catch(() => {
+        setPdfError(true);
+      });
+  }, []);
 
-    if (isIOS) {
-      window.open(pdfUrl, '_blank', 'noopener,noreferrer');
-    } else {
-      window.location.href = pdfUrl;
-    }
-  };
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const update = () => setContainerWidth(el.clientWidth);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[--bg] pt-12">
+    <div className="min-h-screen overflow-x-hidden bg-[--bg] pt-0">
       {/* Header bar */}
-      <div className="glass sticky top-12 z-40 border-b border-ink-200/40">
-        <div className="container-x flex h-11 items-center justify-between gap-2">
-          <div className="flex items-center gap-3">
+      <div className="glass sticky top-0 z-40 border-b border-ink-200/40">
+        <div className="container-x flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <Link
               href="/"
               className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] text-ink/70 transition-colors hover:text-ink"
@@ -41,38 +68,61 @@ export default function CVPage() {
             </span>
           </div>
 
-          <a
-            href={cvData.pdfFile}
-            onClick={handleDownloadPdf}
-            className="flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-1.5 text-[12px] font-medium text-white transition-transform hover:scale-[1.02]"
-          >
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-              <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            Download PDF
-          </a>
+          <div className="flex justify-start sm:justify-end">
+            <a
+              href={cvData.pdfFile}
+              download={cvData.pdfFileName}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 rounded-full bg-ink px-3.5 py-1.5 text-[12px] font-medium text-white transition-transform hover:scale-[1.02]"
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Download PDF
+            </a>
+          </div>
         </div>
       </div>
 
       {/* Main content */}
       <div className="container-x py-4 sm:py-8">
-        {/* PDF Viewer */}
         {!pdfError ? (
-          <div className="overflow-hidden rounded-2xl border border-ink-200/30 shadow-xl shadow-ink/5">
-            <iframe
-              src={`${cvData.pdfFile}#toolbar=0&navpanes=0&scrollbar=1`}
-              className="min-h-[70vh] w-full sm:min-h-[80vh]"
-              style={{ height: 'calc(100vh - 140px)' }}
-              title={`${cvData.profile.name} CV`}
-              onError={() => setPdfError(true)}
-            />
+          <div
+            ref={containerRef}
+            className="overflow-hidden rounded-2xl border border-ink-200/30 bg-ink-100/20 shadow-xl shadow-ink/5"
+          >
+            <Document
+              file={cvData.pdfFile}
+              onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+              onLoadError={() => setPdfError(true)}
+              loading={
+                <div className="flex h-[60vh] items-center justify-center text-[13px] text-ink/50">
+                  Đang tải CV...
+                </div>
+              }
+              className="flex flex-col items-center gap-3 py-3"
+            >
+              {numPages &&
+                containerWidth > 0 &&
+                Array.from({ length: numPages }, (_, i) => (
+                  <Page
+                    key={i}
+                    pageNumber={i + 1}
+                    width={containerWidth}
+                    renderTextLayer={true}
+                    renderAnnotationLayer={false}
+                    className="!shadow-none"
+                  />
+                ))}
+            </Document>
           </div>
         ) : (
           /* Fallback: render CV from JSON */
           <CVFallback />
         )}
       </div>
-    </div>
+    </div >
   );
 }
 
