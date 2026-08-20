@@ -11,6 +11,8 @@ const items = [
   { label: 'Contact', href: '#contact' },
 ];
 
+const cvUrl = 'https://docs.google.com/document/d/1zy0CLTFpKulEcNGr6-1J28yXWlbJY-dNKJvHrIdGMnY/edit?usp=sharing';
+
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -66,8 +68,10 @@ export default function NavBar() {
           </ul>
 
           <div className="flex items-center gap-3">
-            <Link
-              href="/cv"
+            <a
+              href={cvUrl}
+              target="_blank"
+              rel="noreferrer"
               className="hidden md:inline-flex items-center gap-1 rounded-full border border-ink/20 px-3.5 py-1.5 text-[12px] font-medium text-ink/80 transition-all hover:border-ink/40 hover:text-ink"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
@@ -75,7 +79,7 @@ export default function NavBar() {
                 <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               My CV
-            </Link>
+            </a>
             <Link
               href="/#contact"
               className="hidden md:inline-flex items-center gap-1 rounded-full bg-ink px-3.5 py-1.5 text-[12px] font-medium text-white transition-transform hover:scale-[1.02]"
@@ -120,13 +124,15 @@ export default function NavBar() {
             </li>
           ))}
           <li>
-            <Link
-              href="/cv"
+            <a
+              href={cvUrl}
+              target="_blank"
+              rel="noreferrer"
               onClick={() => setMobileOpen(false)}
               className="block py-3 font-medium tracking-tight text-ink"
             >
               CV
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
