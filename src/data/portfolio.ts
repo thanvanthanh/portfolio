@@ -38,9 +38,24 @@ export type Project = {
   gradient: [string, string];
   accent: string;
   image?: string;
+  link?: string;
 };
 
 export const projects: Project[] = [
+  {
+    name: 'Snapism',
+    tagline: 'Create, customize, and print photos via photobooth machines.',
+    description:
+      'iOS app enabling users to create, customize, and print photos via photobooth machines. Built core architecture and key photo-printing features with complex UI/UX and RESTful API integration. Integrated payment, QR code, WKWebView, Firebase, KakaoSDK, NaverSDK, and AppAuth.',
+    tech: ['MVP', 'Firebase', 'KakaoSDK', 'NaverSDK', 'SnapKit', 'AppAuth', 'WKWebView', 'RESTful API'],
+    role: 'iOS Developer',
+    year: '2024 — 2025',
+    emoji: '🎞️',
+    gradient: ['#0071e3', '#1d4ed8'],
+    accent: '#2997ff',
+    image: '/projects/snapism.png',
+    link: 'https://apps.apple.com/kr/app/snapism-%EC%8A%A4%EB%82%B4%ED%94%BC%EC%A6%98/id6739771894',
+  },
   {
     name: 'VNASA',
     tagline: 'Vietnam Airlines internal super-app.',
@@ -66,6 +81,7 @@ export const projects: Project[] = [
     gradient: ['#11998E', '#38EF7D'],
     accent: '#11998E',
     image: '/projects/photoism.jpg',
+    link: 'https://apps.apple.com/kr/app/id6747059622',
   },
   {
     name: 'Yogiyo',
@@ -79,6 +95,50 @@ export const projects: Project[] = [
     gradient: ['#FF0844', '#FFB199'],
     accent: '#FF0844',
     image: '/projects/yogiyo.jpg',
+    link: 'https://apps.apple.com/kr/app/id543831532',
+  },
+  {
+    name: 'Smartlearn',
+    tagline: 'AI-powered education platform integrating LMS and SIS.',
+    description:
+      'Smartlearn is an AI-powered education platform integrating LMS and SIS functionalities. I contributed to the development of the Lost & Found module, which enables users to report, search, and manage lost or found items efficiently within the platform.',
+    tech: [
+      'MVVM',
+      'Clean Architecture',
+      'SnapKit',
+      'Firebase',
+      'AppAuth',
+      'SocketIO',
+      'Deeplink',
+    ],
+    role: 'iOS Developer',
+    year: '2023',
+    emoji: '🎓',
+    gradient: ['#30d158', '#0071e3'],
+    accent: '#30d158',
+    image: '/projects/smartlearn.png',
+    link: 'https://apps.apple.com/jp/app/smart-learn-app/id6463868037',
+  },
+  {
+    name: 'Vyin SDK',
+    tagline: 'Real-time video/audio meeting iOS SDK.',
+    description:
+      'This project develops an iOS SDK for meeting applications, providing seamless video/audio calls and real-time communication. It leverages LiveKit for high-quality media streaming, ChatSdk for text and multimedia messaging, and sockets for low-latency interactions.',
+    tech: [
+      'VIPER',
+      'Clean Architecture',
+      'LiveKit',
+      'ChatSDK',
+      'Firebase',
+      'CallKit',
+      'WebSockets',
+    ],
+    role: 'iOS SDK Developer',
+    year: '2023 — 2024',
+    emoji: '📹',
+    gradient: ['#6366f1', '#a855f7'],
+    accent: '#818cf8',
+    image: '/projects/vyin.jpeg',
   },
   {
     name: 'Toyota Wallet',
@@ -92,6 +152,7 @@ export const projects: Project[] = [
     gradient: ['#9e6264', '#1281db'],
     accent: '#517FA4',
     image: '/projects/toyota-wallet.jpg',
+    link: 'https://apps.apple.com/jp/app/id1482354577',
   },
   {
     name: 'ProBit Global',
