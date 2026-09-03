@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import DynamicIslandNav from '~/components/DynamicIslandNav';
 import SmoothScrollProvider from '~/components/SmoothScrollProvider';
+import SiriLoader from '~/components/SiriLoader';
 
 const siteUrl = 'https://thanvanthanh.info.vn';
 const siteName = 'Than Van Thanh — Mobile Developer';
@@ -137,6 +138,7 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[var(--bg)] text-white antialiased selection:bg-accent/30 selection:text-white">
+        <SiriLoader />
         <SmoothScrollProvider>
           <a id="top"></a>
           <DynamicIslandNav />
