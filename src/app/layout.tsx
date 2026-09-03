@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 // @ts-ignore: Allow side-effect import of global CSS in Next.js
 import './globals.css';
-import NavBar from '~/components/NavBar';
-import RevealObserver from '~/components/RevealObserver';
+import DynamicIslandNav from '~/components/DynamicIslandNav';
+import SmoothScrollProvider from '~/components/SmoothScrollProvider';
 
 const siteUrl = 'https://thanvanthanh.info.vn';
 const siteName = 'Than Van Thanh — Mobile Developer';
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
   openGraph: {
     type: 'website',
@@ -136,11 +136,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className="bg-[var(--bg)] text-ink antialiased">
-        <a id="top"></a>
-        <NavBar />
-        <main className="pt-12">{children}</main>
-        <RevealObserver />
+      <body className="bg-[var(--bg)] text-white antialiased selection:bg-accent/30 selection:text-white">
+        <SmoothScrollProvider>
+          <a id="top"></a>
+          <DynamicIslandNav />
+          <main>{children}</main>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

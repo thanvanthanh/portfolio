@@ -1,60 +1,78 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { experiences } from '~/data/portfolio';
+import { Briefcase, Calendar, CheckCircle, ChevronRight, GitBranch } from 'lucide-react';
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative bg-black text-white">
-      <div className="container-x py-28 md:py-36">
-        <div className="reveal max-w-3xl">
-          <p className="eyebrow text-white/60">Experience</p>
-          <h2 className="mt-4 display-1 text-white">
-            <span className="block">A timeline of</span>
-            <span className="block gradient-text">shipping things.</span>
-          </h2>
-        </div>
+    <section id="experience" className="relative py-28 md:py-36 bg-[#0a0a0e] text-white overflow-hidden">
+      {/* Background Glow */}
+      <div
+        className="pointer-events-none absolute left-1/3 bottom-10 h-[500px] w-[500px] rounded-full opacity-15 blur-[140px]"
+        style={{ background: '#2997ff' }}
+      />
 
-        <ol className="mt-16 space-y-12 md:space-y-16">
-          {experiences.map((e, i) => (
-            <li
-              key={e.company}
-              className="reveal grid grid-cols-[24px_1fr] gap-6 md:grid-cols-[180px_24px_1fr] md:gap-10"
+      <div className="container-x">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl"
+        >
+          <span className="eyebrow">Engineering Track Record</span>
+          <h2 className="mt-4 display-1 text-white">
+            Proven Leadership. <br />
+            <span className="gradient-apple">Years of Shipping at Scale.</span>
+          </h2>
+        </motion.div>
+
+        {/* Git-Commit Style Timeline */}
+        <div className="mt-16 space-y-12">
+          {experiences.map((exp, idx) => (
+            <motion.div
+              key={exp.company}
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.15 }}
+              className="relative rounded-[32px] border border-white/10 bg-gradient-to-b from-[#15151f]/80 to-[#0d0d12]/90 p-8 lg:p-10 backdrop-blur-xl shadow-2xl hover:border-white/20 transition-all group"
             >
-              <div className="hidden text-right text-[14px] tracking-tight text-white/60 md:block">
-                {e.period}
-              </div>
-              <div className="relative">
-                <div className="mt-2 h-3 w-3 rounded-full bg-gradient-to-br from-[#0071e3] to-[#8e5cd9] shadow-[0_0_24px_rgba(0,113,227,0.55)]" />
-                {i < experiences.length - 1 && (
-                  <div className="absolute left-1/2 top-5 h-full w-px -translate-x-1/2 bg-gradient-to-b from-white/20 to-transparent" />
-                )}
-              </div>
-              <div>
-                <div className="text-[13px] uppercase tracking-[0.16em] text-white/55 md:hidden">
-                  {e.period}
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/10">
+                <div>
+                  <div className="flex items-center gap-2 text-accent text-[13px] font-semibold uppercase tracking-wider">
+                    <Briefcase className="h-4 w-4" />
+                    <span>{exp.company}</span>
+                  </div>
+                  <h3 className="mt-2 text-[24px] sm:text-[28px] font-bold text-white tracking-tight">
+                    {exp.role}
+                  </h3>
                 </div>
-                <h3 className="mt-2 text-[24px] font-semibold tracking-tight md:text-[32px]">
-                  {e.role}
-                </h3>
-                <div className="bg-gradient-to-r from-[#0071e3] to-[#8e5cd9] bg-clip-text text-[18px] font-medium tracking-tight text-transparent md:text-[22px]">
-                  {e.company}
+                <div className="inline-flex items-center gap-2 self-start lg:self-center rounded-full bg-white/5 border border-white/10 px-4 py-1.5 text-[13px] font-medium text-white/70">
+                  <Calendar className="h-3.5 w-3.5 text-accent" />
+                  <span>{exp.period}</span>
                 </div>
-                <p className="mt-4 max-w-[680px] text-[16px] leading-relaxed text-white/70">
-                  {e.summary}
-                </p>
-                <ul className="mt-4 space-y-2">
-                  {e.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className="flex items-start gap-3 text-[15px] text-white/85"
-                    >
-                      <span className="mt-2.5 inline-block h-1 w-1 shrink-0 rounded-full bg-accent" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
-            </li>
+
+              <p className="mt-6 text-[16px] text-white/80 leading-relaxed max-w-3xl">
+                {exp.summary}
+              </p>
+
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3">
+                {exp.bullets.map((b, bIdx) => (
+                  <div
+                    key={bIdx}
+                    className="flex items-start gap-3 p-3 rounded-2xl bg-white/[0.02] border border-white/5 text-[14px] text-white/75"
+                  >
+                    <CheckCircle className="h-4 w-4 text-accent shrink-0 mt-0.5" />
+                    <span>{b}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
