@@ -80,10 +80,6 @@ export default function Contact() {
             <span className="gradient-apple">flagship iOS experience?</span>
           </h2>
 
-          <p className="mt-5 lede max-w-xl mx-auto">
-            Available for Senior iOS, Lead Mobile, and high-impact contract roles. Let's engineer something extraordinary together.
-          </p>
-
           {/* Quick Copy Action Buttons */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <button
