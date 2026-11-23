@@ -6,41 +6,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = 'https://thanvanthanh.info.vn';
   const now = new Date();
   return [
-    {
-      url: `${base}/`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${base}/#about`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${base}/#skills`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${base}/#work`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: `${base}/#experience`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${base}/#contact`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
+    { url: `${base}/`, lastModified: now, changeFrequency: 'monthly', priority: 1 },
+    { url: `${base}/#ai-systems`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/#work`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
+    { url: `${base}/#skills`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/#experience`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${base}/#contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
   ];
 }

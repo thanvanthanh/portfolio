@@ -1,88 +1,66 @@
 {
   "profile": {
     "name": "Than Van Thanh",
-    "title": "Senior iOS / Mobile Developer",
-    "location": "Hanoi, Vietnam",
+    "title": "Mobile Engineer & AI-Native Systems Builder",
+    "location": "Tay Mo, Hanoi, Vietnam",
     "email": "thanvanthanh1909@gmail.com",
-    "phone": "0366 360 222",
+    "phone": "+84 366 360 222",
+    "website": "https://thanvanthanh.info.vn",
     "github": "https://github.com/thanvanthanh",
     "linkedin": "https://www.linkedin.com/in/than-van-thanh/",
-    "bio": "iOS Developer with 5+ years building production apps in Swift, Objective-C and Flutter. Shipped everything from enterprise super-apps to fintech, food delivery and crypto exchange — obsessed with smooth UI, clean architecture and real performance."
+    "bio": "Mobile Engineer with 5+ years in iOS and Flutter across fintech, banking, and super-apps. Drives AI-native engineering workflows with Claude Code, Kiro, and MCP, backed by hands-on experience building a unified LLM gateway and a read-only PostgreSQL MCP server (Go, Python, Keycloak)."
   },
   "stats": [
-    {
-      "value": "5+",
-      "label": "Years of experience"
-    },
-    {
-      "value": "10+",
-      "label": "Apps shipped"
-    },
-    {
-      "value": "3M+",
-      "label": "End users"
-    },
-    {
-      "value": "4.5",
-      "label": "Average rating"
-    }
+    { "value": "5+", "label": "Years iOS & Flutter" },
+    { "value": "3M+", "label": "Production Users" },
+    { "value": "6-Dev", "label": "Team Leadership" },
+    { "value": "MCP", "label": "AI & LLM Gateway" }
   ],
   "skills": [
-    {
-      "name": "Swift / SwiftUI",
-      "level": "Expert"
-    },
-    {
-      "name": "Objective-C / UIKit",
-      "level": "Expert"
-    },
-    {
-      "name": "Flutter & Dart",
-      "level": "Advanced"
-    },
-    {
-      "name": "TCA / VIPER / MVVM",
-      "level": "Expert"
-    },
-    {
-      "name": "RxSwift & Combine",
-      "level": "Advanced"
-    },
-    {
-      "name": "Firebase / Realm / CoreData",
-      "level": "Advanced"
-    },
-    {
-      "name": "CI/CD · Fastlane · Jenkins",
-      "level": "Advanced"
-    },
-    {
-      "name": "LiveKit · WebSocket · SDK",
-      "level": "Strong"
-    }
+    { "category": "Programming Languages", "items": ["Swift", "Dart", "Go", "Python"] },
+    { "category": "iOS Development", "items": ["UIKit", "SwiftUI", "Auto Layout", "SnapKit", "Combine", "RxSwift", "RxCocoa"] },
+    { "category": "Flutter Development", "items": ["Flutter", "BLoC/Cubit", "GetIt", "GetX"] },
+    { "category": "Architecture & Design Patterns", "items": ["MVC", "MVP", "MVVM", "VIPER", "TCA", "Clean Architecture"] },
+    { "category": "Networking & Integration", "items": ["RESTful APIs", "WebSocket", "Dio", "WKWebView", "OAuth 2.0", "PostgreSQL"] },
+    { "category": "Data Persistence & Security", "items": ["Realm", "UserDefaults", "Keychain", "Firebase"] },
+    { "category": "Libraries & SDKs", "items": ["Firebase", "LiveKit", "Datadog", "Braze", "Lottie", "AppsFlyer", "KakaoSDK", "NaverSDK"] },
+    { "category": "Tools & DevOps", "items": ["Git", "Bitbucket", "Tuist", "XcodeGen", "SwiftGen", "Fastlane", "Jenkins", "CI/CD"] },
+    { "category": "AI Engineering", "items": ["Claude Code", "Kiro", "Codex", "MCP", "Agent Skills", "FastMCP"] },
+    { "category": "Project Management", "items": ["Jira", "Confluence", "Backlog", "Monday.com"] }
   ],
   "experiences": [
     {
-      "company": "SOTATEK., JSC",
-      "role": "Mobile Developer (iOS / Flutter)",
-      "period": "08/2022 — Present",
-      "summary": "Build and lead mobile for large outsourcing products — from enterprise super-apps to fintech, food delivery, photobooth and edtech.",
+      "company": "CMC GLOBAL",
+      "role": "iOS Developer (onsite at Techcombank)",
+      "period": "August 2026 — Present",
+      "summary": "Techcombank Mobile — A new retail banking app by Techcombank.",
       "bullets": [
-        "Flutter lead on VNASA — Vietnam Airlines' internal super-app (15+ team members).",
-        "iOS Developer on Photoism / Snapism (Korea) with TCA + SwiftUI and Kakao / Naver SDK integrations.",
-        "Built the Yogiyo App (Korea) — MVVM + TCA, Tuist, Fastlane CI/CD.",
-        "Built the Merchant App for a retail chain in Korea.",
-        "Built the GIM SDK for video / audio meetings on top of LiveKit + ChatSDK + WebSocket.",
-        "Contributed to ProBit Global and Smart Learn (GIIS) — VIPER + Clean Architecture."
+        "Project Hyper-P: Developed key features for membership tier upgrade journey (benefit calculator, tier comparison, progress tracker).",
+        "Processed data from AEM configurations and wrote comprehensive unit tests.",
+        "Used Kiro for feature implementation, refactoring, and unit tests following MVVM + Clean Architecture; reviewed and validated AI-generated code.",
+        "Integrated Figma, Jira, and Confluence via MCP; defined agent skills for coding, code review, and unit testing."
+      ]
+    },
+    {
+      "company": "SOTATEK, JSC",
+      "role": "Mobile Engineer",
+      "period": "August 2022 — August 2026",
+      "summary": "Led a 6-member cross-platform mobile team and delivered high-traffic mobile apps and AI gateway infrastructure.",
+      "bullets": [
+        "Led a 6-member cross-platform mobile team across task assignments, technical decisions, code reviews, and delivery.",
+        "Built DBInc LLM Gateway (Go Bifrost) and Python FastMCP PostgreSQL schema server secured with Keycloak authentication.",
+        "Developed and maintained Yogiyo App (Datadog log tracing), PHOTOISM (TCA/SwiftUI), VNASA (Vietnam Airlines Flutter), and SNAPISM.",
+        "Streamlined CI/CD pipelines with Fastlane to optimize build and release workflows."
       ]
     },
     {
       "company": "OPN VN",
       "role": "iOS Developer",
-      "period": "06/2021 — 07/2022",
-      "summary": "Built fintech products for the Japanese market.",
+      "period": "May 2021 — July 2022",
+      "summary": "Toyota Wallet — Mobile payment solution integrating e-money, credit, and debit payments.",
       "bullets": [
-        "Built Toyota Wallet — VIPER + Clean Architecture, RxSwift, with strong transaction safety."
+        "Developed core features throughout the SDLC using VIPER + Clean Architecture, RxSwift, RxCocoa, RxDataSources, and Firebase.",
+        "Conducted code reviews and resolved technical issues to enhance stability and performance."
       ]
     }
   ],
@@ -90,12 +68,12 @@
     {
       "school": "Hanoi University of Business and Technology",
       "major": "Bachelor of Information Technology",
-      "period": "10/2017 — 12/2021"
+      "period": "Graduated February 2022"
     },
     {
       "school": "TECHMASTER Vietnam",
-      "major": "iOS Swift Programming",
-      "period": "03/2021 — 05/2021"
+      "major": "iOS Swift Programming Training",
+      "period": "March 2021 — May 2021"
     }
   ],
   "pdfFile": "/thanvanthanh.pdf",
